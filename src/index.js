@@ -3,6 +3,8 @@ import loadCalendar from './calendar';
 import handleResize from './handleResize';
 
 $(() => {
+
+  
   const currentPageDisplay = {
     searchBarExtended: true,
     offsetTop: false

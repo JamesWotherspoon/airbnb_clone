@@ -1,12 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
-    devtool: 'inline-source-map',
+    entry: {
+      index: './src/index.js',
+      calendar: './src/calendar.js'
+    },
     devServer: {
         inline: true,
         contentBase: './dist',
@@ -50,7 +51,6 @@ module.exports = {
         ],
       },
       plugins: [
-        new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
           title: 'Airbnb',
           template: "./src/index.html",
