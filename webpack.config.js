@@ -54,7 +54,8 @@ module.exports = {
         new HtmlWebpackPlugin({
           title: 'Airbnb',
           template: "./src/index.html",
-          filename: "./index.html"
+          filename: "./index.html",
+          inject: "head"
         }),
         new webpack.ProvidePlugin({
           $: 'jquery',
