@@ -1,5 +1,4 @@
-import './styles.scss';
-//import "./index.html";
+//import './styles.scss';
 import loadCalendar from './calendar';
 import handleResize from './handleResize';
 

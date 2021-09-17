@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
@@ -17,6 +17,7 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        publicPath: "https://jameswotherspoon.github.io/airbnb_clone/",
     },
     module: {
         rules: [
@@ -53,7 +54,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           title: 'Portfolio of James Wotherspoon',
           template: "./src/index.html",
-          filename: "./main.html"
+          filename: "./index.html"
         }),
         new webpack.ProvidePlugin({
           $: 'jquery',
