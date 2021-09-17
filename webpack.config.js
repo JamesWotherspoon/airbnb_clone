@@ -24,7 +24,10 @@ module.exports = {
         rules: [
           {
             test: /\.scss$/i,
-            use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+            use: [{
+              loader: "style-loader",
+              options: { injectType: "singletonStyleTag" },
+            }, "css-loader", "postcss-loader", "sass-loader"],
           },
           {
             test: /\.html$/i,
