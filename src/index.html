@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" id="html-media-query-selector">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb: Holiday Rentals, Cabins, Beach Houses, Unique Homes & More</title>
+</head>
+<body id="body-media-query-selector">
+    <div class="top-background-container">
+        <img src="./images/airbnb-background.jpg" class="background-image-top"/>
+        <div class="background-center-text">
+            <p>Not sure where to go? Perfect</p>
+            <div class="find-random-location-button">
+                <p>I'm flexible</p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="./images/airbnb-logo-black.png" alt="" class="logo black-logo" />
+                <img src="./images/airbnb-logo-red.png" alt="" class="logo red-logo">
+                <img src="./images/airbnb-small-logo-black.png" alt="" class="logo small-black-logo" />
+                <img src="./images/airbnb-small-logo-red.png" alt="" class="logo small-red-logo">
+            </div>
+            <div class="offset-top-media-query">
+                <ul class="nav-search-options-list">
+                    <li class="nav-search-options selected-nav-search-option" id="places-to-stay">
+                        Places to Stay
+                    </li>
+                    <li class="nav-search-options" id="experiences">
+                        Experiences
+                    </li>
+                    <li class="nav-search-options" id="online-experiences">
+                        Online Experiences
+                    </li>
+                </ul>
+                <div class="search-trip-bar">
+                    <!-- -->
+                    <h4 class="inner-search-text inner-search-text-hidden">Start your search</h4>
+                    <!-- -->
+                    <div class="search-trip-bar-inner-container selected-search-bar-content" id="search-trip-bar-stays">
+                        <div class="location-container search-bar-content">
+                            <h5>Location</h5>
+                            <input type="text" placeholder="Where are you going?" />
+                        </div>
+                        <hr />
+                        <div class="check-in-container search-bar-content">
+                            <h5>Check in</h5>
+                            <p id='check-in-string-date-display'>Add dates</p>
+                            <div class="search-bar-content-delete-button" id="check-in-date-remove-button">
+                                <p>x</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="check-out-container search-bar-content">
+                            <h5>Check out</h5>
+                            <p id='check-out-string-date-display'>Add dates</p>
+                            <div class="search-bar-content-delete-button" id="check-out-date-remove-button">
+                                <p>x</p>
+                            </div>
+                        </div>
+                        <!--display when calendar dates set to flexible-->
+                        <div class="search-bar-flexible-dates-container search-bar-content">
+                            <h5>Flexible dates</h5>
+                            <h5 class="search-bar-flexible-dates-string-dates">
+                                <span id="flexible-length-of-stay">Weekend</span> in
+                                <span id="flexible-months-of-stay"></span>
+                            </h5>
+                        </div>
+                        <hr />
+                        <div class="guests-container search-bar-content">
+                            <div>
+                                <h5>Guests</h5>
+                                <p class="guest-container-total-amount-string">Add guests</p>
+                                <div class="search-bar-content-delete-button" id="guest-remove-button">
+                                    <p>x</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--experience search bar -->
+                    <div class="search-trip-bar-inner-container" id="search-trip-bar-experience">
+                        <div class="experience-location-container search-bar-content">
+                            <h5>Location</h5>
+                            <input type="text" placeholder="Where are you going?" />
+                        </div>
+                        <hr />
+                        <div class="experience-date-container search-bar-content">
+                            <h5>Date</h5>
+                            <p class="experience-dates-not-selected-text">Add when you want to go</p>
+                            <p class="experience-dates-selected-text"><span class="experience-check-in-text"></span> - <span class="experience-check-out-text"></span></p>
+                            <div class="search-bar-content-delete-button" id="experience-date-remove-button">
+                                <p>x</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-button">
+                        <img src="./images/search-icon.png" alt="Search" class="search-icon"/>
+                        <h5 class="search-text">Search</h5>
+                    </div>
+
+                    <!-- options to display on search bar selections -->
+                    <div class="location-active-options">
+                        <h2>Go anywhere, anytime</h2>
+                        <div class="location-options-flexible-container">
+                            <h3>I'm flexible</h3>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="date-active-options">
+                        <div class="dates-specific-or-flexible-container">
+                            <h4 class="dates-specific-dates calender-option-selected ">Calendar</h4>
+                            <h4 class="dates-flexible-dates">I'm flexible</h4>
+                        </div>
+                        <div class="calendar-months-container calendar-months-container-stays">
+                            <div class="displayed-month">
+                                <h4 class="overflow-previous-month-title month-title"></h4>            
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                    </div>
+                                    <div class="overflow-previous-month-calendar-numbers displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="displayed-month">
+                                <div class="month-title-and-arrow-container">
+                                    <div class="previous-month-arrow">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </div>
+                                    <h4 class="first-month-title month-title"></h4>
+                                </div>
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                        <h5>Mo</h5>
+                                        <h5>Tu</h5>
+                                        <h5>We</h5>
+                                        <h5>Th</h5>
+                                        <h5>Fr</h5>
+                                        <h5>Sa</h5>
+                                        <h5>Su</h5>
+                                    </div>
+                                    <div class="first-displayed-month displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" displayed-month">
+                                <div class="month-title-and-arrow-container">
+                                    <h4 class="second-month-title month-title"></h4>
+                                    <div class="next-month-arrow">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>                  
+                                </div>
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                        <h5>Mo</h5>
+                                        <h5>Tu</h5>
+                                        <h5>We</h5>
+                                        <h5>Th</h5>
+                                        <h5>Fr</h5>
+                                        <h5>Sa</h5>
+                                        <h5>Su</h5>
+                                    </div>
+                                    <div class="second-displayed-month displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayed-month">
+                                <h4 class="overflow-next-month-title month-title"></h4>            
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                    </div>
+                                    <div class="overflow-next-month-calendar-numbers displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                        <!-- flexible dates selected-->
+                        <div class="flexible-dates-container">
+                            <h3>How long would you like to stay?</h3>
+                            <div class="flexible-dates-length-of-stay-container">
+                                <h4 class="flexible-dates-length-of-stay flexible-dates-length-of-stay-selected">Weekend</h4>
+                                <h4 class="flexible-dates-length-of-stay">Week</h4>
+                                <h4 class="flexible-dates-length-of-stay">Month</h4>
+                            </div>
+                            <h3>When do you want to go?</h3>
+                            <div class="flexible-dates-months-container">
+                                <div class="flexible-dates-month-option flexible-dates-month-option-selected">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon-selected.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                                <div class="flexible-dates-month-option flexible-dates-month-option-selected">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon-selected.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                                <div class="flexible-dates-month-option">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                                <div class="flexible-dates-month-option">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                                <div class="flexible-dates-month-option">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                                <div class="flexible-dates-month-option">
+                                    <img class="flexible-calendar-icon" src="./images/flexible-stay-calendar-icon.jpg" alt="">
+                                    <h5 class="flexible-dates-month-title"></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- search bar guests selected -->
+                    <div class="guests-active-options">
+                        <div class="type-of-guest-container">
+                            <div class="type-of-guest">
+                                <h3>Adults</h3>
+                                <h4>Ages 13 or above</h4>
+                            </div>
+                            <div class="handle-guest-number-change adult-number-change">
+                                <div class="reduce-number-of-adults reduce-number-of-guests change-number-of-guests inactive-at-zero">-</div>
+                                <div class="number-of-adults type-of-guest-number">0</div>
+                                <div class="increase-number-of-adults change-number-of-guests">+</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="type-of-guest-container">
+                            <div class="type-of-guest">
+                                <h3>Children</h3>
+                                <h4>Ages 2-12</h4>
+                            </div>
+                            <div class="handle-guest-number-change children-number-change">
+                                <div class="reduce-number-of-children reduce-number-of-guests change-number-of-guests inactive-at-zero">-</div>
+                                <div class="number-of-children type-of-guest-number">0</div>
+                                <div class="increase-number-of-children change-number-of-guests">+</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="type-of-guest-container">
+                            <div class="type-of-guest">
+                                <h3>Infants</h3>
+                                <h4>Under 2</h4>
+                            </div>
+                            <div class="handle-guest-number-change infants-number-change">
+                                <div class="reduce-number-of-infants reduce-number-of-guests change-number-of-guests inactive-at-zero">-</div>
+                                <div class="number-of-infants type-of-guest-number">0</div>
+                                <div class="increase-number-of-infants change-number-of-guests">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--experience location dropdown-->
+                    <div class="experience-location-active">
+                        <img src="./images/location-icon-image.jpg" alt="" class="experience-location-icon-image"/>
+                        <h4>Nearby</h4>
+                    </div>
+                    <!--experience dates dropdown-->
+                    <div class="experience-dates-active">
+                        <div class="calendar-months-container">
+                            <div class="displayed-month">
+                                <h4 class="overflow-previous-month-title month-title"></h4>            
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                    </div>
+                                    <div class="overflow-previous-month-calendar-numbers displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>                            
+                            </div>
+                            <div class="displayed-month">
+                                <div class="month-title-and-arrow-container">
+                                    <div class="previous-month-arrow">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </div>
+                                    <h4 class="first-month-title month-title"></h4>
+                                </div>
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                        <h5>Mo</h5>
+                                        <h5>Tu</h5>
+                                        <h5>We</h5>
+                                        <h5>Th</h5>
+                                        <h5>Fr</h5>
+                                        <h5>Sa</h5>
+                                        <h5>Su</h5>
+                                    </div>
+                                    <div class="first-displayed-month displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" displayed-month">
+                                <div class="month-title-and-arrow-container">
+                                    <h4 class="second-month-title month-title"></h4>
+                                    <div class="next-month-arrow">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>                  
+                                </div>
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                        <h5>Mo</h5>
+                                        <h5>Tu</h5>
+                                        <h5>We</h5>
+                                        <h5>Th</h5>
+                                        <h5>Fr</h5>
+                                        <h5>Sa</h5>
+                                        <h5>Su</h5>
+                                    </div>
+                                    <div class="second-displayed-month displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="displayed-month">
+                                <h4 class="overflow-next-month-title month-title"></h4>            
+                                <div class="displayed-month-grid">
+                                    <div class="displayed-month-day-names">
+                                    </div>
+                                    <div class="overflow-next-month-calendar-numbers displayed-month-numbered-dates">
+
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='settings-container'>
+                <div class="become-host">
+                    <p>Become a host</p>
+                </div>
+                <div class="language-icon-container">
+                    <img src="./images/language-icon-white.png" alt="Change Language" class="language-icon language-icon-white">
+                    <img src="./images/language-icon-black.png" alt="Change Language" class="language-icon language-icon-black">
+                </div>
+                <div class="account-settings-container">
+                    <img src="./images/hamburger-menu.png" alt="More options" class="account-hamburger-menu">
+                    <img src="./images/blank-account-profile-pic.jpg" alt="Account settings" class="account-profile-pic">
+                    <div class="account-settings-dropdown">
+                        <h4>Sign up</h4>
+                        <h5>Log in</h5>
+                        <hr>
+                        <h5>Host your home</h5>
+                        <h5>Host an Experience</h5>
+                        <h5>Help</h5>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+    <main>
+        <section class="explore-nearby">
+            <h2>Explore nearby</h2>
+            <div class="location-thumbnail-container">
+                <div class="location-suggestion">
+                    <img src="./images/london.jpg" alt="London" class="location-image" />
+                    <div class="location-text-container">
+                        <h5>London</h5>
+                        <p>45-minute drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/manchester.jpg" alt="Manchester" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>Manchester</h5>
+                        <p>4-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/liverpool.jpg" alt="Liverpool" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>Liverpool</h5>
+                        <p>4-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/york.jpg" alt="York" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>York</h5>
+                        <p>4-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/cardiff.jpg" alt="Cardiff" class="location-image" />
+                    <div class="location-text-container">
+                        <h5>Cardiff</h5>
+                        <p>3.5-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/birkenhead.jpg" alt="Birkenhead" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>Birkenhead</h5>
+                        <p>4-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/oxford.jpg" alt="Oxford" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>Oxford</h5>
+                        <p>1.5-hour drive</p>
+                    </div>
+                </div>
+                <div class="location-suggestion">
+                    <img src="./images/hove.jpg" alt="Hove" class="location-image"/>
+                    <div class="location-text-container">
+                        <h5>Hove</h5>
+                        <p>2-hour drive</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="live-anywhere">
+            <h2>Live anywhere</h2>
+            <div class="types-of-accommodation-including-arrows-container">
+                <div class="types-of-accommodation-arrows types-of-accommodation-prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="types-of-accommodation-container">
+                    <div class="type-of-accommodation">
+                        <img src="./images/outdoor-getaways.jpg" alt="A House in the wilderness" class="type-of-accommodation-image">
+                        <h5>Outdoor getaways</h5>
+                    </div>
+                    <div class="type-of-accommodation">
+                        <img src="./images/unique-stays.jpg" alt="A Floating house in the sea" class="type-of-accommodation-image">
+                        <h5>Unique stays</h5>
+                    </div>
+                    <div class="type-of-accommodation">
+                        <img src="./images/entire-homes.jpg" alt="A Wooden House" class="type-of-accommodation-image">
+                        <h5>Entire homes</h5>
+                    </div>
+                    <div class="type-of-accommodation">
+                        <img src="./images/pets-allowed.jpg" alt="A pug sitting on a bed" class="type-of-accommodation-image">
+                        <h5>Pets allowed</h5>
+                    </div>
+                </div>
+                <div class="types-of-accommodation-arrows types-of-accommodation-next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
+        <section class="try-hosting" >
+            <div class="try-hosting-text-container">
+                <h2>Try hosting</h2>
+                <p>
+                    Earn extra income and unlock new 
+                    <br />
+                    opportunities by sharing your space.
+                </p>
+                <button>Learn more</button>
+            </div>
+            <img src="./images/try-hosting-image.jpg" alt="A woman sitting on a sofa" class="try-hosting-image"/>
+            <img src="./images/try-hosting-small-screen-image.jpg" alt="A woman sitting on a sofa" class="try-hosting-small-screen-image"/>
+        </section>
+        <section class="discover-experiences">
+            <h2>Discover Experiences</h2>
+            <div class="experiences-container">
+                <div class="type-of-experience">
+                    <img src="./images/experiences-image.jpg" alt="A sheep at a tea table." class="experience-image">
+                    <h4>Experiences</h4>
+                    <p>Find unforgettable activities near you.</p>
+                </div>
+                <div class="type-of-experience">
+                    <img src="./images/online-experiences.jpg" alt="A tablet with a group call on teaching cooking." class="experience-image">
+                    <h4>Online Experiences</h4>
+                    <p>Live, interactive activities led by Hosts.</p>
+                </div>
+                <div class="type-of-experience">
+                    <img src="./images/olympians-image.jpg" alt="A drawing of Olympians and Paralympians" class="experience-image">
+                    <h4>Olympians & Paralympians</h4>
+                    <p>Online activities hosted by athletes.</p>
+                </div>
+            </div>
+        </section>
+        <section class="list-of-destinations-section">
+            <h2>Inspiration for future getaways</h2>
+            <div class="list-of-destinations-title-container">
+                <div class="type-of-destination-container historic-destination-title type-of-destination-active">
+                    <h5>Historic Destinations</h5>
+                </div>
+                <div class="type-of-destination-container coastal-destination-title">
+                    <h5>Coastal Destinations</h5>
+                </div>
+                <div class="type-of-destination-container island-destination-title">
+                    <h5>Island Destinations</h5>
+                </div>
+                <div class="type-of-destination-container lake-destination-title">
+                    <h5>Lake Destinations</h5>
+                </div>
+                <div class="type-of-destination-container other-destination-title">
+                    <h5>Other Popular Destinations</h5>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-list-options">
+            <div class="footer-about footer-column-container">
+                <h3>About</h3>
+                <ul>
+                    <li>How Airbnb works</li>
+                    <li>Newsroom</li>
+                    <li>Airbnb 2021</li>
+                    <li>Investors</li>
+                    <li>Airbnb Plus</li>
+                    <li>Airbnb Luxe</li>
+                    <li>HotelTonight</li>
+                    <li>Airbnb for Work</li>
+                    <li>Made possible by Hosts</li>
+                    <li>Careers</li>
+                    <li>Founders' Letter</li>
+                </ul>
+            </div>
+            <div class="footer-community footer-column-container">
+                <h3>Community</h3>
+                <ul>
+                    <li>Diversity & Belonging</li>
+                    <li>Accessibillity</li>
+                    <li>Airbnb Associates</li>
+                    <li>Frontline Stays</li>
+                    <li>Guest Referrals</li>
+                    <li>Airbnb.org</li>
+                </ul>
+            </div>
+            <div class="footer-host footer-column-container">
+                <h3>Host</h3>
+                <ul>
+                    <li>Host your home</li>
+                    <li>Host an Online Experience</li>
+                    <li>Host an Experience</li>
+                    <li>Responsible hosting</li>
+                    <li>Resource Centre</li>
+                    <li>Community Centre</li>
+                </ul>
+            </div>
+            <div class="footer-support footer-column-container">
+                <h3>Support</h3>
+                <ul>
+                    <li>Our COVID-19 Response</li>
+                    <li>Help Centre</li>
+                    <li>Cancellation options</li>
+                    <li>Neighbourhood Support</li>
+                    <li>Trust & Safety</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-banner">
+            <div class="footer-banner-left">
+                <h6><i class="far fa-copyright"></i>  2021 Airbnb,inc .<br> Privacy . Terms . Sitemap . UK Modern Slavery Act . Company details</h6>
+            </div>
+            <div class="footer-banner-right">
+                <div class="footer-language-container">
+                    <img src="./images/language-icon-black.png" alt="Change Language icon" class="footer-language-icon"/>
+                    <h6>English(GB)</h6>
+                </div>
+                <div class="footer-currency-container">
+                    <h6>£</h6>
+                    <h6 class="footer-gbp">GBP</h6>
+                </div>
+                <div class="footer-social-media-container">
+                    <img src="./images/facebook-icon.png" alt="Facebook Icon" class="footer-social-media-icon"/>
+                    <img src="./images/twitter-icon.png" alt="Twitter Icon" class="footer-social-media-icon" />
+                    <img src="./images/instagram-icon.png" alt="Instagram Icon" class="footer-social-media-icon" />
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+<script src="https://kit.fontawesome.com/014e379113.js" crossorigin="anonymous">
+</script>
+</html>
+
+
+
+
