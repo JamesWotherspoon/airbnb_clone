@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -24,10 +25,7 @@ module.exports = {
         rules: [
           {
             test: /\.scss$/i,
-            use: [{
-              loader: "style-loader",
-              options: { injectType: "singletonStyleTag" },
-            }, "css-loader", "postcss-loader", "sass-loader"],
+            use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
           },
           {
             test: /\.html$/i,
@@ -54,6 +52,7 @@ module.exports = {
         ],
       },
       plugins: [
+        new MiniCssExtractPlugin, 
         new HtmlWebpackPlugin({
           title: 'Airbnb',
           template: "./src/index.html",
