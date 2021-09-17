@@ -52,7 +52,7 @@ module.exports = {
       plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
-          title: 'Portfolio of James Wotherspoon',
+          title: 'Airbnb',
           template: "./src/index.html",
           filename: "./index.html"
         }),
