@@ -9,6 +9,7 @@ module.exports = {
       index: './src/index.js',
       calendar: './src/calendar.js'
     },
+    devtool: 'inline-source-map',
     devServer: {
         inline: true,
         contentBase: './dist',
@@ -57,7 +58,8 @@ module.exports = {
           title: 'Airbnb',
           template: "./src/index.html",
           filename: "./index.html",
-          inject: "head"
+          inject: "head",
+          favicon: "./src/images/favicon.png"
         }),
         new webpack.ProvidePlugin({
           $: 'jquery',

@@ -1,18 +1,19 @@
 import './styles.scss';
 import loadCalendar from './calendar';
 import handleResize from './handleResize';
+import backgroundImage from './images/airbnb-background.jpg';
 
 $(() => {
 
-  
-  const currentPageDisplay = {
-    searchBarExtended: true,
-    offsetTop: false
-  }
+  // load large image and insert into dom
+  $('<img />', {
+    class: 'background-image-top',
+    src: backgroundImage
+  }).prependTo($('.top-background-container'));
 
   // determines if the extended searchbar should be open
   determineSearchBarExtended();
-
+  
   $(document).on('scroll', determineSearchBarExtended)
 
   $('.search-trip-bar').on('click', function(){
@@ -30,9 +31,11 @@ $(() => {
     }
   }
   function extendSearchBar(){
-    if($(window).width() < 725) return 
+    if($(window).width() < 725) return
+    if($('nav').is('#extend-searchbar')) return
+
     $('nav').attr('id','extend-searchbar');
-    
+
     if($('nav').hasClass('offset-top') && !$('.location-container').hasClass('search-bar-content-selected')){
       if(window.searchBarSelected.placesToStay){
         $('.location-container').trigger("click");
@@ -97,13 +100,21 @@ $(() => {
   // content in search bar selected
 
   $('.search-bar-content').on('click', function(){
-    
-    $('.search-trip-bar').addClass('content-selected')
+
+    if($(this).hasClass('search-bar-content-selected')){
+      $('.search-bar-content-selected').removeClass('search-bar-content-selected');
+      $('.display-search-bar-option').removeClass('display-search-bar-option');
+      $('.search-trip-bar').removeClass('content-selected')
+      return
+    }
+
     $('.search-bar-content-selected').removeClass('search-bar-content-selected');
+    $('.display-search-bar-option').removeClass('display-search-bar-option');
+    $('.search-trip-bar').addClass('content-selected')
     $(this).addClass('search-bar-content-selected');
 
-    $('.display-search-bar-option').removeClass('display-search-bar-option');
     if($(this).hasClass('location-container')){
+      console.log('here')
       $('.location-active-options').addClass('display-search-bar-option');
     }
     if($(this).hasClass('check-in-container') || $(this).hasClass('check-out-container') || $(this).hasClass('search-bar-flexible-dates-container')){
@@ -124,7 +135,6 @@ $(() => {
       $('.experience-location-active').addClass('display-search-bar-option');
     }
     if($(this).hasClass('experience-date-container')){
-      console.log('button selected')
       $('.experience-dates-active').addClass('display-search-bar-option');
       if( !window.calendarLoaded){
         window.calendarLoaded = true;

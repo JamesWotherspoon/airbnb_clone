@@ -14,20 +14,20 @@ export default function loadCalendar(){
     
         if(window.searchBarSelected.placesToStay){
             if(!storeDateSelection.checkIn.dateString){
-                $('#check-in-string-date-display').empty().append('Add dates');
+                $('#check-in-string-date-display').empty().append('Add dates').removeClass('selected-date-string-display');
                 $('#check-in-date-remove-button').removeClass('display-delete-button');
             } else {
-                $('#check-in-string-date-display').empty().append(`${storeDateSelection.checkIn.dayDate} ${monthNames[storeDateSelection.checkIn.month].substring(0, 3)}`);
+                $('#check-in-string-date-display').empty().append(`${storeDateSelection.checkIn.dayDate} ${monthNames[storeDateSelection.checkIn.month].substring(0, 3)}`).addClass('selected-date-string-display');
                 $('#check-in-date-remove-button').addClass('display-delete-button');
                 $('.search-bar-content-selected').removeClass('search-bar-content-selected');
                 $('.check-out-container').addClass('search-bar-content-selected');
             }
                 
             if(!storeDateSelection.checkOut.dateString){
-                $('#check-out-string-date-display').empty().append('Add dates');
+                $('#check-out-string-date-display').empty().append('Add dates').removeClass('selected-date-string-display');
                 $('#check-out-date-remove-button').removeClass('display-delete-button');
             } else {
-                $('#check-out-string-date-display').empty().append(`${storeDateSelection.checkOut.dayDate} ${monthNames[storeDateSelection.checkOut.month].substring(0, 3)}`);
+                $('#check-out-string-date-display').empty().append(`${storeDateSelection.checkOut.dayDate} ${monthNames[storeDateSelection.checkOut.month].substring(0, 3)}`).addClass('selected-date-string-display');
                 $('#check-out-date-remove-button').addClass('display-delete-button');
                 $('.search-bar-content-selected').removeClass('search-bar-content-selected');
                 $('.check-in-container').addClass('search-bar-content-selected');
@@ -70,6 +70,7 @@ export default function loadCalendar(){
     };
 
     function handleSelectedCalendarDate(){
+        if( $(this).data('date') === storeDateSelection.checkIn.dateString || $(this).data('date') === storeDateSelection.checkOut.dateString ) return;
 
         if(window.searchBarSelected.placesToStay){
             let checkInSelected = $('.search-bar-content-selected').hasClass('check-in-container');
