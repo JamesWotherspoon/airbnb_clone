@@ -7,7 +7,8 @@ module.exports = {
     mode: 'production',
     entry: {
       index: './src/index.js',
-      calendar: './src/calendar.js'
+      calendar: './src/calendar.js',
+      flexibleDateOptions: './src/flexibleDateOptions.js'
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -21,6 +22,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
         publicPath: "https://jameswotherspoon.github.io/airbnb_clone/",
+    },
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+      },
     },
     module: {
         rules: [

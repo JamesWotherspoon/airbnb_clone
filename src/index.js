@@ -37,15 +37,22 @@ $(() => {
     $('nav').attr('id','extend-searchbar');
 
     if($('nav').hasClass('offset-top') && !$('.location-container').hasClass('search-bar-content-selected')){
-      if(window.searchBarSelected.placesToStay){
-        $('.location-container').trigger("click");
-        return
-      }
-      $('.experience-location-container').trigger("click");
+      selectSearchBarLocation()
     }
   }
   function minimizeSearchBar(){
     $('nav').removeAttr('id', 'extend-searchbar');
+  }
+
+  // search button clicked open location on searchbar
+  $('.search-button').on('click', selectSearchBarLocation);
+
+  function selectSearchBarLocation(){
+    if(window.searchBarSelected.placesToStay){
+      $('.location-container').trigger('click');
+      return
+    }
+    $('.experience-location-container').trigger('click');
   }
 
   //
@@ -114,8 +121,8 @@ $(() => {
     $(this).addClass('search-bar-content-selected');
 
     if($(this).hasClass('location-container')){
-      console.log('here')
       $('.location-active-options').addClass('display-search-bar-option');
+      $('#location-input')[0].focus()
     }
     if($(this).hasClass('check-in-container') || $(this).hasClass('check-out-container') || $(this).hasClass('search-bar-flexible-dates-container')){
       $('.date-active-options').addClass('display-search-bar-option');
@@ -133,6 +140,7 @@ $(() => {
     }
     if($(this).hasClass('experience-location-container')){
       $('.experience-location-active').addClass('display-search-bar-option');
+      $('#experience-location-input')[0].focus();
     }
     if($(this).hasClass('experience-date-container')){
       $('.experience-dates-active').addClass('display-search-bar-option');
